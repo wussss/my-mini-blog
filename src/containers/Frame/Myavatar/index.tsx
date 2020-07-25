@@ -22,9 +22,13 @@ const Myavatar: React.FC = props => {
   }, []) //添加事件监控，点击其它位置隐藏内容消失
 
   const dispatch = useDispatch()
-  const Logout = () => {
-    dispatch({ type: 'LOGOUT' })
-  } //退出登录，user置空
+
+  const confirmLogout = () => {
+    if (window.confirm('确定登出吗？')) {
+      dispatch({ type: 'LOGOUT' })
+    }
+  }
+
   return (
     <Wrapper avatar={avatarLarge}>
       <div className="nav-item avatar-menu">
@@ -44,11 +48,11 @@ const Myavatar: React.FC = props => {
             </li>
             <li>
               <Link className="menu-item" to={'/settings'}>
-                <span className="iconfont">&#xe654; 设置</span>
+                <span className="iconfont">&#xe654; 个人资料</span>
               </Link>
             </li>
             <li className="menu-item">
-              <span onClick={Logout} className="iconfont">
+              <span onClick={confirmLogout} className="iconfont">
                 &#xe621; 退出登录
               </span>
             </li>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 文件目录
 
 
@@ -30,7 +29,7 @@ RouteErrorBoundary
 
 ### lib  各种可能会用到的方法
 
-### madal 
+### madal ts类型定义
 
 ### pages   各页面业务逻辑
 home 主页
@@ -92,7 +91,3 @@ xw
 
 //依赖包安装报错信息
 ### yarn-error.log
-=======
-# my-mini-blog
-a micro-blog of myself
->>>>>>> 7d17a87d7d440c3f0fe6a10a85f3674258a2534d

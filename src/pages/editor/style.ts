@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-flow: column;
     height: 100%;
+    font-weight:bold;
     .header {
       position: fixed;
       top: 0;
@@ -17,7 +18,7 @@ export const Wrapper = styled.div`
       align-items: center;
       justify-content: space-between;
       border: 1px solid #cbb8cb;
-      padding-right: 15px;
+      padding-right: 80px;
       input {
         width: 50%;
         height: 100%;

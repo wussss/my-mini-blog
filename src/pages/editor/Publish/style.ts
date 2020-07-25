@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   flex-flow: row nowrap;
   margin-right: 80px;
   .publish {
+    width:180px;
     color: #cbb8cb;
     font-size: 12px;
     :hover {

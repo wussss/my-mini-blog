@@ -29,7 +29,6 @@ const Header: React.FC = props => {
 
   const { flag: flag1, setTrue: setTrue1, setFalse: setFalse1 } = useFlag(false) //登录弹窗是否展示
   const { flag: flag2, setTrue: setTrue2, setFalse: setFalse2 } = useFlag(false) //注册弹窗是否展示
-
   const dispatch = useDispatch()
 
   return (
@@ -53,10 +52,8 @@ const Header: React.FC = props => {
                   }
                 }}
               />
-              <button>
-                <span className="iconfont" onClick={onSearch}>
-                  &#xe627;
-                </span>
+              <button onClick={onSearch}>
+                <span className="iconfont">&#xe627;</span>
               </button>
             </div>
           </li>

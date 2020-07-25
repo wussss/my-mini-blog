@@ -57,7 +57,7 @@ const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }
           type: newtype,
           tag: [],
         })
-        history.replace(`/`) //发布成功后回到首页
+        history.replace(`/post/${id}`) //发布成功后回到详情页
       } else {
         await createArticle({
           author: username,
@@ -68,7 +68,7 @@ const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }
           type: newtype,
           tag: [],
         })
-        history.replace(`/`) //发布成功后回到首页
+        history.replace(`/post/${id}`) //发布成功后回到详情页
       }
     }
   }, [content, title, screenshot, newtype])
@@ -91,7 +91,7 @@ const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }
                 className={item === newtype ? 'type new' : 'type'}
                 onClick={e => {
                   e.nativeEvent.stopImmediatePropagation()
-                  !newtype ? setType(item) : setType('')
+                  setType(newtype === item ? '' : item)
                 }}
                 key={item}
               >

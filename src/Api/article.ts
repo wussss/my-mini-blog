@@ -8,7 +8,7 @@ import { baseUrl } from './url'
 const article = {
   query: `/article/query`,
   detail: `/article/`,
-  create: `/article`,
+  create: `/article/`,
   reedit: `/article/`,
   delete: `/article`,
   viewCount: `/article/`,

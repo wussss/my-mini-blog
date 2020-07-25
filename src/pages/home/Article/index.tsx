@@ -3,13 +3,9 @@
 import React, { memo, useCallback, useEffect, useState } from 'react'
 //memo针对一个组件是否重复渲染
 // usestate(state,setState) 每次渲染按第一次运行的顺序返回state;只会渲染一次;通过setState函数改变state
-import { Link } from 'react-router-dom'
-
 import { addLike, deleteLike } from '@/Api/like'
 import useQuery from '@/lib/hooks/useQuery'
-import { translateMarkdown } from '@/lib/utils/markdown'
 import { ArticleEntity } from '@/modal/entities/article.entity'
-import { matchReg } from '@/pages/post/Catalog'
 
 import { Wrapper } from './style'
 
@@ -41,18 +37,13 @@ const Article: React.FC<IProps> = ({
   //(props:Iprops)
   author,
   content,
-  html,
   title,
   screenshot = '',
-  tag,
   type,
   user = {},
-  _id,
   id,
   create_at,
-  viewCount,
   likeCount,
-  commentCount,
   isLiked = false,
   isFeatured,
 }) => {
@@ -63,7 +54,7 @@ const Article: React.FC<IProps> = ({
     window.open(`/user/${user.id}`)
   }
   const { query } = useQuery()
-  const { search } = query
+  const { search = '' } = query
   // ? search:xxxx
   const [likeFlag, setLikeFlag] = useState(isLiked) //当即显示的是否点赞
   const [likeCountNew, setLikeCountNew] = useState(likeCount) //当即显示的点赞数
@@ -96,12 +87,19 @@ const Article: React.FC<IProps> = ({
             <li className="info_item">{type}</li>
           </ul>
           <div className="article" onClick={toPost}>
-            <div className="title">
-              <span>{title}</span>
-            </div>
-            <div className="abstract">
-              <span>{content}</span>
-            </div>
+            <div
+              className="title"
+              dangerouslySetInnerHTML={{
+                __html: title && title.replace(new RegExp(search, 'gi'), `<em> ${search}</em>`),
+              }}
+            ></div>
+            <div
+              className="abstract"
+              dangerouslySetInnerHTML={{
+                __html: content && content.replace(new RegExp(search, 'gi'), `<em> ${search}</em>`),
+              }}
+            ></div>
+            <div className="photo" />
           </div>
           <li className="icon_like" onClick={onLike}>
             {likeFlag ? <span className="iconfont">&#xe657;</span> : <span className="iconfont">&#xe653;</span>}

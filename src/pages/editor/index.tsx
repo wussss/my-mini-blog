@@ -65,7 +65,11 @@ const EditMarkdown: React.FC = () => {
     const { url } = await uploadFile(formData)
     setData((data: any) => ({ ...data, screenshot: url }))
   }, [])
-
+  const confirmBack = () => {
+    if (window.confirm('请确认是否返回，如确认则未发布的内容将会丢失')) {
+      history.replace(`/`)
+    }
+  }
   return (
     <Wrapper screenshot={data.screenshot}>
       <div className="articleEdit">
@@ -78,7 +82,7 @@ const EditMarkdown: React.FC = () => {
               <div className="image-preview" title="封面图预览"></div>
             </div>
             <Publish title={title} content={content} screenshot={data.screenshot} type={data.type} id={id} />
-            <span className="iconfont back" onClick={() => history.replace(``)}>
+            <span className="iconfont back" onClick={confirmBack}>
               &#xe621; 回到首页
             </span>
           </div>
