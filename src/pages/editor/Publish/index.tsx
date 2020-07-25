@@ -1,11 +1,10 @@
-import { message } from 'antd'
-import React, { useState, useCallback, useEffect } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useCallback } from 'react'
 import { Wrapper } from './style'
-
-// 引入CodeMirror样式
-import { createArticle, reeditArticle } from '@/Api/article'
-import 'codemirror/mode/markdown/markdown'
+import '@/statics/iconfont/iconfont.css'
 import { useSelector } from '@/redux/context'
+import { message } from 'antd'
+import { createArticle, reeditArticle } from '@/Api/article'
 import { useHistory } from 'react-router'
 
 interface IProps {
@@ -20,132 +19,92 @@ interface IProps {
 }
 
 const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }) => {
+  const [dropdown, setDropDown] = useState(false) //点击头像下拉菜单，默认不展示
+  const hideDropdown = (e: any) => {
+    if (!['type', 'confirm'].includes(e.target.className)) {
+      setDropDown(false)
+    }
+  }
+  useEffect(() => {
+    document.addEventListener('click', hideDropdown)
+    return () => document.removeEventListener('click', hideDropdown)
+  }, [dropdown]) //添加事件监控，点击其它位置隐藏内容消失
+  const typeList: string[] = ['前端', 'React', 'JS', 'TS', 'HTTP', 'Webpack', '猿生活', '勿删']
+
   const {
     user: { username },
   } = useSelector()
-
-  // publish 面板标签
-  const typeList = ['搞笑','综艺','影视', '情感', '明星', '电影', '正能量', '健身', '校园', '职场']
-
-  const [active, setActive] = useState(type || '')
-
-  // 重新编辑时更新 type
+  const [newtype, setType] = useState(type || '')
   useEffect(() => {
-    setActive(type)
-  }, [type])
+    setType(type)
+  }, [type]) //type改变时更新newtype
+  const history = useHistory()
   const onPublish = useCallback(async () => {
-    if (active === '') {
-      message.warning('至少选择一个标签')
-    } else if (title === '') {
+    if (title === '') {
       message.warning('标题不能为空')
-    } else if (content.markdown === '' && content.html === '') {
+    } else if (newtype === '') {
+      message.warning('至少选择一个标签')
+    } else if (content.markdown === '') {
       message.warning('内容不能为空')
     } else {
-      // console.log('是不是！！！', screenshot)
-      // id 存在，即重新编辑已存在的文章
       if (id) {
         await reeditArticle(id, {
           author: username,
           content: content.markdown,
           html: content.html,
-          title,
+          title: title,
           screenshot: screenshot,
-          type: active,
+          type: newtype,
           tag: [],
         })
-        history.replace(`/post/${id}`)
+        history.replace(`/`) //发布成功后回到首页
       } else {
-        // id 不存在，即新建文章
-        const { id } = await createArticle({
+        await createArticle({
           author: username,
           content: content.markdown,
           html: content.html,
-          title,
+          title: title,
           screenshot: screenshot,
-          type: active,
+          type: newtype,
           tag: [],
         })
-        history.replace(`/post/${id}`)
+        history.replace(`/`) //发布成功后回到首页
       }
     }
-  }, [content, title, active, screenshot])
-
-  // 发布文章面板显隐
-  const [showPublish, setPublish] = useState(false)
-
-  const hidePublish = useCallback(
-    (e: any) => {
-      // console.log('点击时是否显示面板', e.target.className, { showPublish })
-      if (
-        // 点击下列区域以外区域 或 面板打开时点击了这 3 个地方 会收起面板
-        (!showPublish &&
-          !['publish', 'publish-title', 'arrow-up', 'panel', 'panel-title', 'type-box', 'sub-title', 'type-list', 'item', 'item active', 'publish-btn'].includes(
-            e.target.className
-          )) ||
-        (showPublish && ['publish', 'publish-title', 'arrow-down'].includes(e.target.className))
-      ) {
-        // console.log('隐藏 publish 面板', { showPublish })
-        setPublish(false)
-      }
-    },
-    [showPublish]
-  )
-
-  useEffect(() => {
-    document.addEventListener('click', hidePublish)
-    return () => {
-      document.removeEventListener('click', hidePublish)
-    }
-  }, [])
-
-  const history = useHistory()
-
+  }, [content, title, screenshot, newtype])
   return (
     <Wrapper>
-      <div className="with-padding">
-        <div
-          className="publish"
-          onClick={e => {
-            // e.nativeEvent.stopImmediatePropagation()
-            if (showPublish) {
-              setPublish(false)
-            } else {
-              setPublish(true)
-            }
-            // console.log('合成', { showPublish })
-          }}
-        >
-          <span className="publish-title">发布</span>
-          
+      <span
+        className="iconfont publish"
+        onClick={e => {
+          e.nativeEvent.stopImmediatePropagation()
+          !dropdown ? setDropDown(true) : setDropDown(false)
+        }}
+      >
+        &#xe61e; 选择文章标签<span className={newtype ? 'preview' : ''}>{newtype}</span>
+      </span>
+      {dropdown && (
+        <div className="blog-type">
+          <ul>
+            {typeList.map(item => (
+              <li
+                className={item === newtype ? 'type new' : 'type'}
+                onClick={e => {
+                  e.nativeEvent.stopImmediatePropagation()
+                  !newtype ? setType(item) : setType('')
+                }}
+                key={item}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+          <button className="confirm" onClick={onPublish}>
+            确定并发布
+          </button>
         </div>
-
-        {showPublish && (
-          <div className="panel">
-            <div className="panel-title">发布文章</div>
-            <div className="type-box">
-              <div className="sub-title">分类</div>
-              <ul className="type-list">
-                {typeList.map(item => (
-                  <li
-                    // onClick={(e) => changeActiveList(e, item)}
-                    // className={activeList.includes(item) ? 'item active' : 'item'}
-                    onClick={() => setActive(item)}
-                    className={item === active ? 'item active' : 'item'}
-                    key={item}
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <button className="publish-btn" onClick={onPublish}>
-              确定并发布
-            </button>
-          </div>
-        )}
-      </div>
+      )}
     </Wrapper>
   )
 }
-
 export default Publish

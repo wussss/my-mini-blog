@@ -7,7 +7,7 @@ import 'codemirror/mode/markdown/markdown'
 
 import { Input, message } from 'antd'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router'
+import { useParams, useHistory } from 'react-router'
 import { useSelector } from '@/redux/context'
 import { getArticle } from '@/Api/article'
 import { uploadFile } from '@/Api/file'
@@ -24,6 +24,7 @@ import { Wrapper } from './style'
 
 const EditMarkdown: React.FC = () => {
   useNeedLogin()
+  const history = useHistory()
   const { id = '' } = useParams()
   const { articleList = [] } = useSelector()
   const article = articleList.find(item => id === item.id) || {}
@@ -73,12 +74,15 @@ const EditMarkdown: React.FC = () => {
           <div className="right-box">
             <div className="upload-img">
               <input type="file" accept="image/*" className="img-selector" title="添加封面图" onChange={onUpload} />
-              <span className="iconfont img-cover">&#xe63a;</span>
+              <span className="iconfont img-cover">&#xe63a;上传封面图</span>
               <div className="image-preview" title="封面图预览"></div>
             </div>
-            <Publish content={content} title={title} type={data.type} id={id} screenshot={data.screenshot} />
-            <Myavatar />
+            <Publish title={title} content={content} screenshot={data.screenshot} type={data.type} id={id} />
+            <span className="iconfont back" onClick={() => history.replace(``)}>
+              &#xe621; 回到首页
+            </span>
           </div>
+          <Myavatar />
         </div>
         <div className="main">
           <CodeMirror

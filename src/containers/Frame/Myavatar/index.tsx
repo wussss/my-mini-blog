@@ -32,7 +32,7 @@ const Myavatar: React.FC = props => {
           className="avatar"
           onClick={e => {
             e.nativeEvent.stopImmediatePropagation()
-            setDropDown(true)
+            !dropdown ? setDropDown(true) : setDropDown(false)
           }}
         />
         {dropdown && (

@@ -5,7 +5,7 @@ import logoPic from '@/statics/logo.png'
 export const Wrapper = styled.div`
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 5;
   width: 100%;
   height: 50px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);

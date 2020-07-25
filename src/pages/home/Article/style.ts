@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
       flex-flow: row nowrap;
       color: #e7c5d3;
       .info_item {
-        :not(:first-child):before {
+        :not(:first-child)::before {
           content: '|';
           margin: 0 10px;
         }
