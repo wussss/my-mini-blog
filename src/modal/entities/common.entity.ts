@@ -1,4 +1,3 @@
-//一条评论包括的属性
 export class CommonEntity {
   id!: string
 

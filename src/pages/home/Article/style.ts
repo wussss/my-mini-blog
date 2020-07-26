@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
     flex-flow: column wrap;
     margin-left: 5px;
     font-size: 12px;
-    border-top:1px solid #F4F5F5;
-    padding-top:5px;
+    border-top: 1px solid #f4f5f5;
+    padding-top: 5px;
     .info_box {
       display: flex;
       flex-flow: row nowrap;
@@ -18,18 +18,12 @@ export const Wrapper = styled.div`
           content: '|';
           margin: 0 10px;
         }
-        :first-child {
-          :hover {
-            font-weight: bold;
-            cursor: pointer;
-          }
-        }
       }
     }
     .article {
       cursor: pointer;
-      width:800px;
-      position:relative;
+      width: 800px;
+      position: relative;
       :hover {
         font-weight: bold;
         color: #b9a1c1;
@@ -42,14 +36,13 @@ export const Wrapper = styled.div`
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-       
       }
       .photo {
         display: ${({ screenshot }: { screenshot: string }) => (screenshot ? 'block' : 'none')};
         flex: 0 0 auto;
-        position:absolute;
+        position: absolute;
         left: 700px;
-        top:-10px;
+        top: -10px;
         width: 60px;
         height: 60px;
         border-radius: 2px;

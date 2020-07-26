@@ -5,12 +5,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from '@/redux/context'
 
-import init_avatar from '@/statics/avatar.png'
+import init_avatar from '@/statics/girl.png'
 import { Wrapper } from './style'
 
 const Myavatar: React.FC = props => {
   const { user } = useSelector() //拿到用户头像信息
-  const { id, avatarLarge = init_avatar } = user
+  const { avatarLarge = init_avatar } = user
 
   const [dropdown, setDropDown] = useState(false) //点击头像下拉菜单，默认不展示
   const hideDropDown = (e: Event) => {
@@ -39,16 +39,12 @@ const Myavatar: React.FC = props => {
             !dropdown ? setDropDown(true) : setDropDown(false)
           }}
         />
+        <span className="username">{user.username}</span>
         {dropdown && (
           <ul className="dropdown-list">
             <li>
-              <Link className="menu-item" to={'/user/' + id}>
-                <span className="iconfont">&#xe61a; 我的主页</span>
-              </Link>
-            </li>
-            <li>
               <Link className="menu-item" to={'/settings'}>
-                <span className="iconfont">&#xe654; 个人资料</span>
+                <span className="iconfont">&#xe654; 个人资料 </span>
               </Link>
             </li>
             <li className="menu-item">

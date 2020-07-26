@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "12683589",
+      "name": "对",
+      "font_class": "icon_gou",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "3832682",
+      "name": "应聘职位",
+      "font_class": "yingpinzhiwei",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "5485635",
+      "name": "链接",
+      "font_class": "lianjie",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "7055654",
+      "name": "介绍",
+      "font_class": "jieshao",
+      "unicode": "e72f",
+      "unicode_decimal": 59183
+    },
+    {
+      "icon_id": "9592764",
+      "name": "公司",
+      "font_class": "gongsi",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "5964565",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
       "icon_id": "12316653",
       "name": "发布",
       "font_class": "fabu",

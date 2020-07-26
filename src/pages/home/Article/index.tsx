@@ -50,9 +50,6 @@ const Article: React.FC<IProps> = ({
   const toPost = () => {
     window.open(`/post/${id}`, '_blank')
   } //在新的标签页打开文章详情页
-  const toUser = () => {
-    window.open(`/user/${user.id}`)
-  }
   const { query } = useQuery()
   const { search = '' } = query
   // ? search:xxxx
@@ -80,7 +77,7 @@ const Article: React.FC<IProps> = ({
       <li>
         <div className="content">
           <ul className="info_box">
-            <li className="info_item" onClick={toUser}>
+            <li className="info_item">
               {user.username}
             </li>
             <li className="info_item">{formatDate(create_at)}</li>

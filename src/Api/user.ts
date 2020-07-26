@@ -6,7 +6,6 @@ import { baseUrl } from './url'
 const user = {
   update: '/user/update',
   info: '/user/',
-  // article: '/user/${id}/article'
 }
 
 export const userUpdate = (data: UserUpdateDto) => {

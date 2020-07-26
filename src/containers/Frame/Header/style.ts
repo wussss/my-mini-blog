@@ -39,6 +39,9 @@ export const Wrapper = styled.div`
           width: 300px;
           height: 30px;
           border: 1px solid #cbb8cb;
+          ::placeholder {
+            color: #d9d9d9;
+          }
         }
         button {
           border: none;

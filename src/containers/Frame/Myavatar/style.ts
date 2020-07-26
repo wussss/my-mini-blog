@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 export const Wrapper = styled.div`
   .avatar-menu {
+    display: flex;
+    align-items: center;
+    .username {
+      color: #cbb8cb;
+      margin-top:20px;
+    }
     .avatar {
       width: 40px;
       height: 40px;
@@ -23,7 +29,7 @@ export const Wrapper = styled.div`
         display: flex;
         justify-content: start;
         padding: 6px 12px;
-        font-size: 16px;
+        font-size: 10px;
         color: #fff;
         :hover {
           font-weight: bold;
