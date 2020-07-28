@@ -1,5 +1,3 @@
-import Frame from '@/containers/Frame'
-
 import SpinCenter from '@/components/SpinCenter'
 import React, { lazy, Suspense } from 'react'
 
@@ -19,6 +17,5 @@ export const lazyComponents = {
 	Post: withSuspense(lazy(() => import('../pages/post'))),
 	Settings: withSuspense(lazy(() => import('../pages/settings'))),
 	Editor: withSuspense(lazy(() => import('../pages/editor'))),
-	User: withSuspense(lazy(() => import('../pages/user'))),
 	// EditMarkdown: withSuspense(lazy(() => import('../components/EditMarkdown'))),
 }

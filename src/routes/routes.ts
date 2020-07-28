@@ -16,8 +16,6 @@ const routes: IRoute[] = [
 			{ path: '/post/:id', component: 'Post' },
 			{ path: '/settings', component: 'Settings' },
 			{ path: '/editor/:id', component: 'Editor' },
-			{ path: '/user/:id', component: 'User' },
-			{ path: '/user/:id/:item', component: 'User' }
 		]
 	}
 ]

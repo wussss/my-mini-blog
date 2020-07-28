@@ -33,13 +33,24 @@ const InfoGroup: React.FC<InfoType> = ({ item: { title, input, placeholder } }) 
     })
     return userInfo
   }, [inputValue])
-
+  
   return (
     <Wrapper>
       <li className="info-item">
         <span className="iconfont title">{title}</span>
         <div className="edit-field">
-          <input className="input" placeholder={placeholder} title={title} value={inputValue} onChange={onInputEvent} />
+          <input
+            className="input"
+            placeholder={placeholder}
+            title={title}
+            value={inputValue}
+            onChange={onInputEvent}
+            onKeyDown={(e: any) => {
+              if (e && e.keyCode === 13) {
+                onSave()
+              }
+            }}
+          />
         </div>
         <span className="iconfont save" onClick={onSave}>
           &#xe619;

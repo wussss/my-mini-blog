@@ -7,7 +7,6 @@ import useFetch from '@/lib/hooks/useFetch'
 import { ArticleEntity } from '@/modal/entities/article.entity'
 import { useSelector } from '@/redux/context'
 import Article from './Article'
-import Author from './Author'
 import Catalog from './Catalog'
 import Comment from './Comment'
 import { Wrapper } from './style'
@@ -38,10 +37,9 @@ const Post: React.FC = props => {
         <SuspendedPanel {...item} />
       </div>
       <div className="right">
-        <Author {...item} />
         <Catalog {...item} />
       </div>
-      <BackTop />
+      <BackTop />ß
     </Wrapper>
   )
 }
