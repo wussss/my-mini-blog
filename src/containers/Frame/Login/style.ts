@@ -1,13 +1,4 @@
-// import styled from 'styled-components';
-
-// export const Wrapper = styled.div`
-
-// `
-
 import styled from 'styled-components'
-import closePicGray from '../../../statics/close-gray.png'
-import closePicBlack from '../../../statics/close-black.png'
-
 export const Wrapper = styled.div`
   position: fixed;
   z-index: 100;
@@ -15,89 +6,65 @@ export const Wrapper = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: rgba(0, 0, 0, 0.3);
   .login-box {
-    margin-top: -200px;
-    width: 318px;
-    /* height: 100px; */
-    padding: 24px;
-    font-size: 14px;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid #c1adc8;
+    margin: 300px auto;
     background: #fff;
-    border-radius: 2px;
-
-    .close-btn {
-      float: right;
-      width: 20px;
-      height: 20px;
-      background: url(${closePicGray}) no-repeat center/contain;
-      cursor: pointer;
-
-      :hover {
-        background: url(${closePicBlack}) no-repeat center/contain;
+    .head {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      margin-top: 10px;
+      h1 {
+        font-size: 12px;
+        font-weight: bold;
+        padding-left: 5px;
+        color: #c1adc8;
       }
-    }
-
-    .title {
-      margin-bottom: 24px;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .input-group {
-      margin-bottom: 6px;
-      .input {
-        margin-bottom: 10px;
-        padding: 10px;
-        width: 100%;
-        color: #000;
-        border: 1px solid #e9e9e9;
-        border-radius: 2px;
-        box-sizing: border-box;
-
-        // 兼容不同浏览器的 placeholder
-        ::-webkit-input-placeholder {
-          color: #666;
-          font-size: 16px;
-        }
-
-        :-moz-placeholder {
-          color: #666;
-          font-size: 16px;
-        }
-
-        ::-moz-placeholder {
-          color: #666;
-          font-size: 16px;
-        }
-
-        :-ms-input-placeholder {
-          color: #666;
-          font-size: 16px;
+      span {
+        padding-right: 5px;
+        color: #c1adc8;
+        :hover {
+          cursor: pointer;
         }
       }
     }
-    .commit-btn {
-      width: 100%;
-      height: 40px;
-      padding: 6px 16px;
-      color: #fff;
-      background: #007fff;
-      border-radius: 2px;
-      border: none;
-      outline: none;
-      box-sizing: border-box;
-      cursor: pointer;
-    }
-
-    .switch {
-      margin-top: 12px;
-      font-size: 14px;
-      color: #007fff;
-      text-align: center;
-      cursor: pointer;
+    .input-panel {
+      .input-group {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 280px;
+        margin: 20px auto;
+        .input-item {
+          display: flex;
+          align-items: center;
+          position: relative;
+          .input {
+            border-radius: 5px;
+            height: 30px;
+            width: 280px;
+            margin-bottom: 5px;
+            border: 1px solid #c1adc8;
+            outline: none;
+            color: #c1adc8;
+            padding-left: 5px;
+          }
+          span {
+            position: absolute;
+            color: #c1adc8;
+            right: 10px;
+            font-size: 12px;
+            :hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
     }
   }
 `

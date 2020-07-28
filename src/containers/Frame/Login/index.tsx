@@ -1,9 +1,8 @@
-// 右侧 下载客户端小卡片
-
 import { signIn } from '@/Api/account'
 import { useDispatch } from '@/redux/context'
 import React, { useCallback, useEffect } from 'react'
 import useInputEvent from '@/lib/hooks/useInputEvent'
+import useFlag from '@/lib/hooks/useFlag'
 import { message } from 'antd'
 
 import { Wrapper } from './style'
@@ -46,15 +45,29 @@ const Login: React.FC<IProps> = ({ onClose, onSwitch }) => {
       })
     }
   }, [phoneNumber, password])
+
+  const { flag, toggleFlag } = useFlag(false) //密码是否展示
+
   return (
     <Wrapper>
       <form className="login-box">
-        <i className="close-btn" onClick={onClose} />
-        <div className="input-panel">
+        <div className="head">
           <h1 className="title">登录</h1>
+          <span className="iconfont" onClick={onClose}>
+            &#xe6c9;
+          </span>
+        </div>
+        <div className="input-panel">
           <div className="input-group">
-            <input className="input" placeholder="请输入手机号" value={phoneNumber} onChange={onChangeNumber} />
-            <input type="password" className="input" placeholder="请输入密码（不少于 6 位）" value={password} onChange={onChangePassword} />
+            <div className="input-item">
+              <input type="text" className="input" placeholder="请输入手机号" value={phoneNumber} onChange={onChangeNumber} />
+            </div>
+            <div className="input-item">
+              <input type={flag ? 'text' : 'password'} className="input" placeholder="请输入密码（不少于 6 位）" value={password} onChange={onChangePassword} />
+              <span className="iconfont" onClick={toggleFlag}>
+                {flag ? '\ue60d' : '\ue67d'}
+              </span>
+            </div>
           </div>
           <button type="button" className="commit-btn" onClick={onLogin}>
             登录

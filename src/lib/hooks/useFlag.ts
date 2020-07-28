@@ -8,5 +8,7 @@ export default function useFlag<T>(initFlag: boolean) {
 
   const setFalse = useCallback(e => setFlag(false), [])
 
-  return { flag, setTrue, setFalse, setFlag }
+  const toggleFlag = useCallback(e => setFlag(!flag), [flag])
+
+  return { flag, setTrue, setFalse, setFlag, toggleFlag }
 }
