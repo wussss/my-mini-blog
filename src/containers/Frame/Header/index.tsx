@@ -27,8 +27,8 @@ const Header: React.FC = props => {
 
   const isLogin = useLogin() //是否登录
 
-  const { flag: flag1, setTrue: setTrue1, setFalse: setFalse1 } = useFlag(false) //登录弹窗是否展示
-  const { flag: flag2, setTrue: setTrue2, setFalse: setFalse2 } = useFlag(false) //注册弹窗是否展示
+  const { flag: flag1, toggleFlag: toggleFlag1 } = useFlag(false) //登录弹窗是否展示
+  const { flag: flag2, toggleFlag: toggleFlag2 } = useFlag(false) //注册弹窗是否展示
   const dispatch = useDispatch()
 
   return (
@@ -66,7 +66,7 @@ const Header: React.FC = props => {
                   </button>
                 </Link>
               ) : (
-                <button onClick={setTrue1}>
+                <button onClick={toggleFlag1}>
                   <span className="iconfont">&#xe645;写文章</span>
                 </button>
               )}
@@ -77,12 +77,12 @@ const Header: React.FC = props => {
           ) : (
             <>
               <li className="nav-item register">
-                <button className="write-box" onClick={setTrue1}>
+                <button className="write-box" onClick={toggleFlag1}>
                   <span className="iconfont write-icon">&#xe600;登录</span>
                 </button>
               </li>
               <li className="nav-item login">
-                <button className="write-box" onClick={setTrue2}>
+                <button className="write-box" onClick={toggleFlag2}>
                   <span className="iconfont write-icon">&#xe71c;注册</span>
                 </button>
               </li>
@@ -99,12 +99,12 @@ const Header: React.FC = props => {
                 showLogin: false,
               },
             })
-            setFalse1(e)
+            toggleFlag1(e)
           }}
-          onSwitch={setTrue2}
+          onSwitch={toggleFlag2}
         />
       )}
-      {flag2 && !isLogin && <Register onClose={setFalse2} onSwitch={setTrue1} />}
+      {flag2 && !isLogin && <Register onClose={toggleFlag2} onSwitch={toggleFlag1} />}
     </Wrapper>
   )
 }

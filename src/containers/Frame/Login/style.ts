@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   background: rgba(0, 0, 0, 0.3);
   .login-box {
     width: 300px;
-    height: 200px;
+    height: 160px;
     border-radius: 5px;
     box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid #c1adc8;
@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
       .input-group {
         display: flex;
         flex-flow: column nowrap;
-        width: 280px;
+        width: 260px;
         margin: 20px auto;
         .input-item {
           display: flex;
@@ -46,7 +46,7 @@ export const Wrapper = styled.div`
           position: relative;
           .input {
             border-radius: 5px;
-            height: 30px;
+            height: 25px;
             width: 280px;
             margin-bottom: 5px;
             border: 1px solid #c1adc8;
@@ -63,6 +63,31 @@ export const Wrapper = styled.div`
               cursor: pointer;
             }
           }
+        }
+      }
+      .foot {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .commit-btn {
+          background: #c1adc8;
+          color: #fff;
+          border: none;
+          border-radius: 2px;
+          margin-right: 10px;
+          height: 20px;
+          cursor: pointer;
+        }
+        .switch {
+          width: 100px;
+          background: #c1adc8;
+          opacity: 0.5;
+          color: #fff;
+          border: none;
+          border-radius: 2px;
+          height: 20px;
+          text-align: center;
+          cursor: pointer;
         }
       }
     }

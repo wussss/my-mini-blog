@@ -1,6 +1,6 @@
 import { signIn } from '@/Api/account'
 import { useDispatch } from '@/redux/context'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import useInputEvent from '@/lib/hooks/useInputEvent'
 import useFlag from '@/lib/hooks/useFlag'
 import { message } from 'antd'
@@ -21,7 +21,11 @@ message.config({
 const Login: React.FC<IProps> = ({ onClose, onSwitch }) => {
   const { inputValue: phoneNumber, onInputEvent: onChangeNumber } = useInputEvent('')
   const { inputValue: password, onInputEvent: onChangePassword } = useInputEvent('')
-
+  const preventEnter = (e: any) => {
+    if (e.keyCode === 13) {
+      e.preventDefault()
+    }
+  }
   const dispatch = useDispatch()
 
   const onLogin = useCallback(() => {
@@ -36,7 +40,6 @@ const Login: React.FC<IProps> = ({ onClose, onSwitch }) => {
       message.warning('请输入正确的手机号')
     } else {
       signIn({ mobilePhoneNumber: phoneNumber, password }).then(data => {
-        console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: onLogin -> data', data)
         dispatch({
           type: 'LOGIN',
           payload: { user: { ...data, access_token: 'Bearer ' + data.access_token } },
@@ -44,6 +47,7 @@ const Login: React.FC<IProps> = ({ onClose, onSwitch }) => {
         onClose(data)
       })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phoneNumber, password])
 
   const { flag, toggleFlag } = useFlag(false) //密码是否展示
@@ -60,26 +64,35 @@ const Login: React.FC<IProps> = ({ onClose, onSwitch }) => {
         <div className="input-panel">
           <div className="input-group">
             <div className="input-item">
-              <input type="text" className="input" placeholder="请输入手机号" value={phoneNumber} onChange={onChangeNumber} />
+              <input type="text" className="input" placeholder="请输入手机号" value={phoneNumber} onChange={onChangeNumber} onKeyDown={preventEnter} />
             </div>
             <div className="input-item">
-              <input type={flag ? 'text' : 'password'} className="input" placeholder="请输入密码（不少于 6 位）" value={password} onChange={onChangePassword} />
+              <input
+                type={flag ? 'text' : 'password'}
+                className="input"
+                placeholder="请输入密码（不少于 6 位）"
+                value={password}
+                onChange={onChangePassword}
+                onKeyDown={preventEnter}
+              />
               <span className="iconfont" onClick={toggleFlag}>
                 {flag ? '\ue60d' : '\ue67d'}
               </span>
             </div>
           </div>
-          <button type="button" className="commit-btn" onClick={onLogin}>
-            登录
-          </button>
-          <div
-            className="switch"
-            onClick={e => {
-              onClose(e)
-              onSwitch(e)
-            }}
-          >
-            没有账号？注册
+          <div className="foot">
+            <button type="button" className="commit-btn" onClick={onLogin}>
+              登录
+            </button>
+            <button
+              className="switch"
+              onClick={e => {
+                onClose(e)
+                onSwitch(e)
+              }}
+            >
+              没有账号？注册
+            </button>
           </div>
         </div>
       </form>
