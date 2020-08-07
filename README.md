@@ -33,6 +33,7 @@ RouteErrorBoundary
 
 ### pages   各页面业务逻辑
 home 主页
+post 文章详情页
 
 
 ### redux   state定义与管理

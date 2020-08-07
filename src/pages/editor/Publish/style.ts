@@ -51,8 +51,8 @@ export const Wrapper = styled.div`
       }
     }
     button {
-      margin-left: 90px;
-      width: 80px;
+      margin-left: 80px;
+      width: 100px;
       color: #f2aebd;
       font-weight: bold;
       background: #fff;

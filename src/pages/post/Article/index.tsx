@@ -1,111 +1,63 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback } from 'react'
 import { useHistory } from 'react-router'
-import { Link } from 'react-router-dom'
-
-import { addFollow, deleteFollow } from '@/Api/follow'
-import { isFollowing } from '@/Api/user'
-import useFetch from '@/lib/hooks/useFetch'
-import useToggle from '@/lib/hooks/useToggle'
-import { translateMarkdown } from '@/lib/utils/markdown'
+import { Wrapper } from './style'
 import { ArticleEntity } from '@/modal/entities/article.entity'
 import { useLogin, useSelector } from '@/redux/context'
-
-import { Wrapper } from './style'
+interface IProps extends ArticleEntity {} //IProps的类型多于ArticleEntity
 
 const formatDate = (milliseconds: number) => {
   const data = new Date(milliseconds)
   const year = data.getFullYear()
   const month = data.getMonth() + 1
   const day = data.getDate()
-  return year + '年' + month + '月' + day + '日'
+  const hour = data.getHours()
+  const Minute = data.getMinutes()
+  return year + '年' + month + '月' + day + '日       ' + hour + ':' + Minute
 }
-
-interface IProps extends ArticleEntity {
-  // user: { avatarLarge: string }
-}
-
-const Article: React.FC<IProps> = ({ create_at, content, title, html, screenshot, id, viewCount, user: { avatarLarge = '', id: userId, username: author } = {} }) => {
+const Article: React.FC<IProps> = ({
+  //(props:Iprops)
+  author,
+  content,
+  title,
+  html,
+  screenshot = '',
+  type,
+  user: { avatarLarge = '', id: userId },
+  id,
+  create_at,
+  likeCount,
+  isLiked,
+  isFeatured,
+}) => {
   const isLogin = useLogin()
-  // 登录用户的用户名
   const {
     user: { username },
   } = useSelector()
   const history = useHistory()
   const onReedit = useCallback(async () => {
     history.push('/editor/' + id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
-  // const isFollow = true
-
-  // 拿到当前登录用户的 id
-  const {
-    user: { id: loginId },
-  } = useSelector()
-
-  const { flag, onToggle, setFlag } = useToggle(false)
-
-  const onFollow = useCallback(async () => {
-    // if (!id || !loginId) {
-    //   return
-    // }
-    flag ? await deleteFollow(userId) : await addFollow(userId)
-    onToggle()
-  }, [flag, userId])
-
-  useFetch(async () => {
-    if (!userId || !loginId) {
-      return
-    }
-    // id 是查看用户, followerId是登录用户
-    const rs = await isFollowing(userId, loginId)
-    setFlag(rs)
-  }, [userId])
-
   return (
-    <Wrapper screenshot={screenshot} avatarLarge={avatarLarge}>
-      {/* 作者及文章简介 */}
+    <Wrapper avatarLarge={avatarLarge} screenshot={screenshot}>
       <div className="author">
-        <div className="author-info">
-          <Link to={'/user/' + userId} target="_blank">
-            <div className="avatar" />
-          </Link>
-          <div>
-            <Link className="author-name" to={'/user/' + userId} target="_blank">
-              {author}
-            </Link>
-            <div className="article-info">
-              <time>{formatDate(create_at)}</time>
-              <span className="views">阅读 {viewCount}</span>
-              {isLogin && author === username && (
-                <div>
-                  <span className="dot">·</span>
-                  <span className="edit-btn" onClick={onReedit}>
-                    编辑
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
+        <div className="avatar"></div>
+        <div className="info">
+          <div className="name">{author}</div>
+          <div className="time">{formatDate(create_at)}</div>
         </div>
-        {flag ? (
-          <button className="follow-btn followed" onClick={onFollow}>
-            已关注
-          </button>
-        ) : (
-          <button className="follow-btn" onClick={onFollow}>
-            关注
-          </button>
+        {isLogin && author === username && (
+          <div className="reedit" onClick={onReedit}>
+            编辑
+          </div>
         )}
       </div>
-
-      {/* 文章标题及内容 */}
-      <div className="cover-img" />
-      <h1 className="article-title">{title}</h1>
-      <div className="article-content">
-        <div className="article-detail" dangerouslySetInnerHTML={{ __html: html || translateMarkdown(content || '') }} />
+      <div className="article">
+        <div className="cover"></div>
+        <div className="title">{title}</div>
+        <div className="content" dangerouslySetInnerHTML={{ __html: html || '' }}></div>
       </div>
     </Wrapper>
   )
 }
-
 export default Article

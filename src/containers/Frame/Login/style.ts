@@ -79,7 +79,7 @@ export const Wrapper = styled.div`
           cursor: pointer;
         }
         .switch {
-          width: 100px;
+          width: 120px;
           background: #c1adc8;
           opacity: 0.5;
           color: #fff;

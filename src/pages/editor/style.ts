@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
       border: 1px solid #cbb8cb;
       padding-right: 80px;
       input {
-        width: 50%;
+        width: 30%;
         height: 100%;
         outline: none;
         box-shadow: none;
@@ -38,6 +38,7 @@ export const Wrapper = styled.div`
           .img-cover {
             color: #cbb8cb;
             font-size: 12px;
+            width:120px;
           }
           .img-selector {
             z-index: 2;
@@ -61,6 +62,7 @@ export const Wrapper = styled.div`
           color: #cbb8cb;
           cursor: pointer;
           font-size: 12px;
+          width:120px;
         }
       }
     }

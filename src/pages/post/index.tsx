@@ -1,47 +1,30 @@
-import { BackTop } from 'antd'
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router'
-
-import { getArticle, putViewCount } from '@/Api/article'
-import useFetch from '@/lib/hooks/useFetch'
-import { ArticleEntity } from '@/modal/entities/article.entity'
-import { useSelector } from '@/redux/context'
-import Article from './Article'
-import Catalog from './Catalog'
-import Comment from './Comment'
+import React from 'react'
 import { Wrapper } from './style'
-import SuspendedPanel from './SuspendedPanel'
+import { useParams } from 'react-router'
+import Article from './Article'
+import Comment from './Comment'
+import ViewLikeComment from './ViewLikeComment'
+import { ArticleEntity } from '@/modal/entities/article.entity'
+import { getArticle } from '@/Api/article'
+import { useSelector } from '@/redux/context'
+import useFetch from '@/lib/hooks/useFetch'
 
-const Post: React.FC = props => {
-  // 文章id
-  const { id = '' } = useParams()
-
-  const { articleList = [] } = useSelector()
-
-  // 从 store 中的文章列表中找到 url 中 id 对应的文章
-  const article = articleList.find((it: any) => id === it.id) || {}
-
+const Post: React.FC = () => {
+  const { id = '' } = useParams() //url中对应的id
+  const { articleList = [] } = useSelector() //从store中获取文章列表
+  const article = articleList.find((item: any) => id === item.id) || {} //从store中根据id获取文章
   const { data = article } = useFetch(() => getArticle(id))
-
   const item: ArticleEntity = data
-
-  useEffect(() => {
-    putViewCount(id)
-  }, [id])
 
   return (
     <Wrapper>
       <div className="left">
+        <ViewLikeComment {...item} />
         <Article {...item} />
         <Comment {...item} />
-        <SuspendedPanel {...item} />
       </div>
-      <div className="right">
-        <Catalog {...item} />
-      </div>
-      <BackTop />ß
+      <div className="right"></div>
     </Wrapper>
   )
 }
-
 export default Post

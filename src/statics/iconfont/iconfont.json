@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "11391494",
+      "name": "发送",
+      "font_class": "fasong",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "13900681",
+      "name": "写",
+      "font_class": "ziyuan",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
       "icon_id": "2570196",
       "name": "闭眼",
       "font_class": "biyan",
