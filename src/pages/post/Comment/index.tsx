@@ -9,7 +9,7 @@ import { ArticleEntity } from '@/modal/entities/article.entity'
 //import { formatDate } from '@/pages/home/Article'
 
 import { Wrapper } from './style'
-import { format } from 'path'
+
 
 interface IProps extends ArticleEntity {}
 
