@@ -15,19 +15,13 @@ const formatDate = (milliseconds: number) => {
   return year + '年' + month + '月' + day + '日       ' + hour + ':' + Minute
 }
 const Article: React.FC<IProps> = ({
-  //(props:Iprops)
   author,
-  content,
   title,
   html,
   screenshot = '',
-  type,
-  user: { avatarLarge = '', id: userId },
+  user: { avatarLarge = ''},
   id,
   create_at,
-  likeCount,
-  isLiked,
-  isFeatured,
 }) => {
   const isLogin = useLogin()
   const {

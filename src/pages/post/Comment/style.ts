@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
       display: flex;
       flex-flow: row nowrap;
       .avatar {
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         background: ${({ avatarLarge }: { avatarLarge: string }) => `url(${avatarLarge}) no-repeat center/cover`};
         margin-right: 5px;
@@ -43,10 +43,51 @@ export const Wrapper = styled.div`
     }
     .foot {
       float: right;
-      span {
+      .iconfont {
         color: #d1b5cc;
         font-size: 13px;
         font-weight: bold;
+      }
+      .disabled {
+        color: #a0a0a0;
+      }
+    }
+  }
+  .commentList {
+    width: 560px;
+    margin: 0 auto;
+    .item {
+      margin-top: 10px;
+      .first-comment {
+        margin-left: 40px;
+        display: flex;
+        flex-flow: row nowrap;
+        .avatar {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          margin-right: 5px;
+        }
+        .info {
+          .info1 {
+            font-size: 12px;
+            color: #6c6c6c;
+          }
+          .info2 {
+            font-size: 11px;
+            color: #cecece;
+          }
+          .info3 {
+            font-size: 13px;
+            width: 400px;
+          }
+        }
+        .content-info {
+          .second-comment {
+            width: 400px;
+            background: #f5f5f5;
+          }
+        }
       }
     }
   }
