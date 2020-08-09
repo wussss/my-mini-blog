@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  width: 760px;
+  width: 780px;
   margin: 10px auto;
   .anchor {
-    width: 720px;
+    width: 740px;
     height: 100px;
     background: #fdfdfc;
     margin-bottom: 20px;
@@ -55,7 +55,7 @@ export const Wrapper = styled.div`
     }
   }
   .commentList {
-    width: 720px;
+    width: 760px;
     margin: 0 auto;
     .item {
       margin-top: 10px;
@@ -124,10 +124,10 @@ export const Wrapper = styled.div`
         }
       }
       .resp {
-        background: #F5F5F5;
-        width:660px;
-        padding:3px;
-        margin-top:5px;
+        background: #f5f5f5;
+        width: 660px;
+        padding: 3px;
+        margin-top: 5px;
         .respCommentList {
           margin-top: 10px;
           margin-left: 10px;
@@ -172,12 +172,12 @@ export const Wrapper = styled.div`
                 .reply {
                   color: #d1b5cc;
                   cursor: pointer;
-                  opacity:0.4；
+                  opacity: 0.4；;
                 }
               }
               .reply1 {
                 margin-top: 10px;
-                width: 540px;
+                width: 520px;
                 background: #f5f5f5;
                 .r1,
                 .r3 {
@@ -189,7 +189,7 @@ export const Wrapper = styled.div`
                 .input-reply {
                   margin: 10px;
                   padding-left: 5px;
-                  width: 500px;
+                  width: 520px;
                   outline: none;
                   box-shadow: none;
                   border: 1px solid #f3f4f5;
