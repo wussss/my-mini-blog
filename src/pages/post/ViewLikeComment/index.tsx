@@ -23,7 +23,6 @@ const ViewLikeComment: React.FC<IProps> = ({ id, isLiked, likeCount, commentCoun
     },
     [likeFlag]
   )
-  console.log(isLiked, likeFlag, likeCount, likeCountNew)
   return (
     <Wrapper>
       <div className="data">

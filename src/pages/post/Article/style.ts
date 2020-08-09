@@ -35,8 +35,8 @@ export const Wrapper = styled.div`
     .cover {
       display: ${({ screenshot }: { screenshot: string; avatarLarge: string }) => (screenshot ? 'block' : 'none')};
       background: ${({ screenshot }) => `url(${screenshot}) no-repeat center/cover`};
-      width: 580px;
-      height: 400px;
+      width: 780px;
+      height:500px;
     }
     .title {
       font-size: 20px;

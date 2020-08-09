@@ -23,7 +23,6 @@ const Post: React.FC = () => {
         <Article {...item} />
         <Comment {...item} />
       </div>
-      <div className="right"></div>
     </Wrapper>
   )
 }
