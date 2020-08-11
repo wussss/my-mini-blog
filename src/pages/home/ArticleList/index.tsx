@@ -47,7 +47,7 @@ const ArticleList: React.FC = () => {
     }
 
     return list
-  }, [query]) //第一页
+  }, [query]) //加载第一页
 
   const nextPage = useCallback(async () => {
     const rs = query.own === 'mine' ? await getUserArticles({ id, endCursor: pageInfo.endCursor }) : await getArticles({ ...query, endCursor: pageInfo.endCursor })
