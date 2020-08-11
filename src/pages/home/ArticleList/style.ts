@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 800px;
-  height: 1200px;
+  height: 800px;
   background: #fff;
   list-style: none;
   .navList {

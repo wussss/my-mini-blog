@@ -52,26 +52,27 @@ const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }
           author: username,
           content: content.markdown,
           html: content.html,
-          title: title,
+          title,
           screenshot: screenshot,
           type: newtype,
           tag: [],
         })
-        history.replace(`/post/${id}`) //发布成功后回到详情页
+        history.replace(`/post/${id}`)
       } else {
-        await createArticle({
+        // id 不存在，即新建文章
+        const { id } = await createArticle({
           author: username,
           content: content.markdown,
           html: content.html,
-          title: title,
+          title,
           screenshot: screenshot,
           type: newtype,
           tag: [],
         })
-        history.replace(`/post/${id}`) //发布成功后回到详情页
+        history.replace(`/post/${id}`)
       }
     }
-  }, [content, title, screenshot, newtype])
+  }, [content, title, newtype, screenshot])
   return (
     <Wrapper>
       <span
