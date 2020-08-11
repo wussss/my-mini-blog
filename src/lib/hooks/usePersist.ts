@@ -19,21 +19,8 @@ export function usePersistedReducer([state, dispatch]: any[], key = 'state', fla
   useEffect(() => {
     axios.defaults.headers.common.Authorization = state.user && state.user.access_token
 
-    // if (!flag) {
-    //   return
-    // }
-    const tmp = state || {}
-
-    const newState = Object.keys(tmp).reduce((res, cur) => {
-      if (Array.isArray(tmp[cur])) {
-        // 避免数组过大
-        res[cur] = tmp[cur].slice(0, 20)
-      }
-      res[cur] = tmp[cur]
-      return res
-    }, {} as any)
-
     return localStorage.setItem(key, JSON.stringify(state))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state])
   return [state, dispatch]
 }

@@ -7,10 +7,8 @@ import { createComment, getCommentList } from '@/Api/comment'
 import useFetch from '@/lib/hooks/useFetch'
 import useInputEvent from '@/lib/hooks/useInputEvent'
 import { ArticleEntity } from '@/modal/entities/article.entity'
-//import { formatDate } from '@/pages/home/Article'
 
 import { Wrapper } from './style'
-import useToggle from '@/lib/hooks/useToggle'
 
 interface TData {
   article: string
@@ -78,7 +76,6 @@ const Comment: React.FC<IProps> = ({ create_at, content, title, html, screenshot
     doFetch()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, articleId, comment])
-  const [flag, setFlag] = useState('')
   const [replyBox1, setReplyBox1] = useState('')
   const { inputValue: comment1, onInputEvent: onInputEvent1, setValue: setComment1 } = useInputEvent('')
   const onComment1 = useCallback(
@@ -138,6 +135,19 @@ const Comment: React.FC<IProps> = ({ create_at, content, title, html, screenshot
   useEffect(() => {
     document.addEventListener('click', hideReplyBox2)
     return () => document.removeEventListener('click', hideReplyBox2)
+  }, [])
+  const [flag, setFlag] = useState('')
+  const hideReply = useCallback(
+    (e: any) => {
+      if (!['resp'].includes(e.target.className)) {
+        setFlag('')
+      }
+    },
+    [flag]
+  )
+  useEffect(() => {
+    document.addEventListener('click', hideReply)
+    return () => document.removeEventListener('click', hideReply)
   }, [])
   return (
     <Wrapper avatarLarge={loginAvatarLarge}>

@@ -1,20 +1,13 @@
-import React, { useEffect, useState, useCallback } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
-import { Link, useHistory } from 'react-router-dom'
-
-import { getArticles } from '@/Api/article'
-import { getUserArticles, getUserInfo } from '@/Api/user'
-import useFetch from '@/lib/hooks/useFetch'
+import React from 'react'
 import useQuery from '@/lib/hooks/useQuery'
 import { ArticleEntity } from '@/modal/entities/article.entity'
-import { useDispatch, useLogin, useSelector } from '@/redux/context'
+import {useSelector } from '@/redux/context'
 
 import Article from '../Article'
 import { Wrapper } from './style'
 
 const ArticleList: React.FC = () => {
   const { articleList } = useSelector()
-  const history = useHistory()
   const { query, setQuery } = useQuery()
   console.log(query.search, query.own, query)
   return (

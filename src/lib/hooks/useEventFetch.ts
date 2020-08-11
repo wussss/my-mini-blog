@@ -10,12 +10,12 @@ export default function useEventFetch<T, V, U, X>(
 	const [ isLoading, setIsLoading ] = useState(false)
 	const [ isError, setIsError ] = useState(false)
 
-	let didCancel = false
+	const [ didCancel, setDidCancel ] = useState(false)
 	useEffect(() => {
-		didCancel = false
 		return () => {
-			didCancel = true
+			setDidCancel(true)
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, deps || [])
 
 	const onEvent = useCallback(async () => {
@@ -35,6 +35,7 @@ export default function useEventFetch<T, V, U, X>(
 				setIsLoading(false)
 			}
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, deps || [])
 
 	const memoData = useMemo(
@@ -46,6 +47,7 @@ export default function useEventFetch<T, V, U, X>(
 				return data
 			}
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ data ]
 	)
 

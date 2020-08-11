@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect, useState } from 'react'
 
 export default function useFetch<T, V>(request: (args?: T) => Promise<V>, initialRequestParam: any = [], initialData?: V) {
