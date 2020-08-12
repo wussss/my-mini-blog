@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   .content {
     display: flex;
     flex-flow: column wrap;
-    margin-left: 5px;
+    margin-left: 20px;
     font-size: 12px;
     border-top: 1px solid #f4f5f5;
     padding-top: 5px;
@@ -22,15 +22,18 @@ export const Wrapper = styled.div`
     }
     .article {
       cursor: pointer;
-      width: 800px;
+      width: 760px;
       position: relative;
+      font-size: 12px;
       :hover {
         font-weight: bold;
         color: #b9a1c1;
       }
       .title {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: bold;
+        white-space: nowrap;
+        letter-spacing:-2px;
       }
       .abstract {
         white-space: nowrap;

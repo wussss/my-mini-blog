@@ -8,21 +8,21 @@ export const Wrapper = styled.div`
   .navList {
     display: flex;
     flex-flow: row nowrap;
-    margin: 5px;
+    padding: 10px 20px;
     li {
       :hover {
         cursor: pointer;
       }
       color: #cbb8cb;
-      font-size: 15px;
+      font-size: 12px;
       :not(:first-child)::before {
-        content: '/';
+        content: '|';
         margin: 0 10px;
       }
     }
     .active {
       font-weight: bold;
-      font-size: 16px;
+      font-size: 14px;
     }
   }
   .articleList {

@@ -8,6 +8,7 @@ import useQuery from '@/lib/hooks/useQuery'
 import { ArticleEntity } from '@/modal/entities/article.entity'
 
 import { Wrapper } from './style'
+import { translateMarkdown } from '@/lib/utils/markdown'
 
 // 格式化时间
 export const formatDate = (time: number) => {
@@ -35,17 +36,16 @@ interface IProps extends ArticleEntity {} //IProps的类型多于ArticleEntity
 
 const Article: React.FC<IProps> = ({
   //(props:Iprops)
-  author,
   content,
+  html,
   title,
   screenshot = '',
   type,
-  user = {},
+  user = { avatarLarge: '' },
   id,
   create_at,
   likeCount,
   isLiked = false,
-  isFeatured,
 }) => {
   const toPost = () => {
     window.open(`/post/${id}`, '_blank')
@@ -55,7 +55,10 @@ const Article: React.FC<IProps> = ({
   // ? search:xxxx
   const [likeFlag, setLikeFlag] = useState(isLiked) //当即显示的是否点赞
   const [likeCountNew, setLikeCountNew] = useState(likeCount) //当即显示的点赞数
-
+  const matchReg = (str: string) => {
+    let reg = /<\/?.+?\/?>/g
+    return str.replace(reg, '')
+  }
   const onLike = useCallback(
     async e => {
       e.stopPropagation()
@@ -77,23 +80,21 @@ const Article: React.FC<IProps> = ({
       <li>
         <div className="content">
           <ul className="info_box">
-            <li className="info_item">
-              {user.username}
-            </li>
+            <li className="info_item">{user.username}</li>
             <li className="info_item">{formatDate(create_at)}</li>
             <li className="info_item">{type}</li>
           </ul>
-          <div className="article" onClick={toPost}>
-            <div
+          <div className="article" onClick={toPost} title="点击可查看详情">
+            <h3
               className="title"
               dangerouslySetInnerHTML={{
                 __html: title && title.replace(new RegExp(search, 'gi'), `<em> ${search}</em>`),
               }}
-            ></div>
+            ></h3>
             <div
               className="abstract"
               dangerouslySetInnerHTML={{
-                __html: content && content.replace(new RegExp(search, 'gi'), `<em> ${search}</em>`),
+                __html: matchReg(html || translateMarkdown(content || '')).replace(new RegExp(search, 'gi'), `<em>${search}</em>`),
               }}
             ></div>
             <div className="photo" />
