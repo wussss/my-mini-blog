@@ -7,7 +7,7 @@ import { getArticles } from '@/Api/article'
 import { getUserArticles } from '@/Api/user'
 import useFetch from '@/lib/hooks/useFetch'
 import useQuery from '@/lib/hooks/useQuery'
-import { ArticleEntity } from '@/modal/entities/article.entity'
+import { ArticleEntity } from '@/model/entities/article.entity'
 import { useDispatch, useLogin, useSelector } from '@/redux/context'
 
 import Article from '../Article'
@@ -92,7 +92,7 @@ const ArticleList: React.FC = () => {
           next={nextPage}
           hasMore={pageInfo.hasNextPage}
           loader={<h5 style={{ textAlign: 'center', color: '#b2bac2' }}>加载中...</h5>}
-          endMessage={<h5 style={{ textAlign: 'center', color: '#b2bac2' }}>耶！您已经看完所有内容！</h5>}
+          endMessage={<h5 style={{ textAlign: 'center', color: '#b2bac2' }}>没有更多内容！</h5>}
           height={760}
         >
           {articleList.map((item: ArticleEntity) => (

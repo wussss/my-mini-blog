@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
     }
     .active {
       font-weight: bold;
-      font-size: 14px;
+      font-size: 15px;
     }
   }
   .articleList {

@@ -20,8 +20,8 @@ export const Wrapper = styled.div`
     .logo-link {
       cursor: pointer;
       .logo {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         background: url(${logoPic}) no-repeat center/contain;
       }
     }

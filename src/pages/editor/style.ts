@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
       border: 1px solid #cbb8cb;
       padding-right: 80px;
       input {
-        width: 30%;
+        width: 400px;
         height: 100%;
         outline: none;
         box-shadow: none;
@@ -51,14 +51,14 @@ export const Wrapper = styled.div`
             border: none;
             width: 30px;
             height: 30px;
-            margin-left: 20px;
+            margin-left: -30px;
             overflow: hidden;
             background: ${({ screenshot }: { screenshot: string }) => `url(${screenshot}) no-repeat center/cover`};
             cursor: none;
           }
         }
         .back {
-          margin-right: 10px;
+          margin-right: -120px;
           color: #cbb8cb;
           cursor: pointer;
           font-size: 12px;

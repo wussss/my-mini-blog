@@ -16,12 +16,13 @@ import { Wrapper } from './style'
 import Myavatar from '@/containers/Frame/Myavatar'
 
 const Header: React.FC = props => {
-  const { inputValue: search, onInputEvent } = useInputEvent('') //search=''
+  const { inputValue: search, setValue: setSearch, onInputEvent } = useInputEvent('') //search=''
   const history = useHistory() //监控地址栏的变化
   const { setQuery } = useQuery() //query={search:xxx,xxx:xxx}  ,setQuery 接收一个对象，改变location
   const onSearch = useCallback(() => {
     history.replace('/')
     setQuery({ search })
+    setSearch('')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]) //当输入框内容改变时，改变location,清空输入框
 
@@ -34,7 +35,7 @@ const Header: React.FC = props => {
   return (
     <Wrapper>
       <header className="header">
-        <Link className="logo-link" to="/home">
+        <Link className="logo-link" to="/home" title='小狗博客'>
           <div className="logo" />
         </Link>
         <ul className="nav">

@@ -1,5 +1,6 @@
 export class CreateCommentDto {
-  readonly firstComment?: string 
+  
+  readonly firstComment?: string
 
   readonly respComment?: string
 
@@ -8,5 +9,4 @@ export class CreateCommentDto {
   readonly articleId!: string
 
   readonly content!: string
-
 }

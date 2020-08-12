@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { useHistory } from 'react-router'
 import { Wrapper } from './style'
-import { ArticleEntity } from '@/modal/entities/article.entity'
+import { ArticleEntity } from '@/model/entities/article.entity'
 import { useLogin, useSelector } from '@/redux/context'
 interface IProps extends ArticleEntity {} //IProps的类型多于ArticleEntity
 

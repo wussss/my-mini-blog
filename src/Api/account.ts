@@ -1,11 +1,11 @@
-import { SignInDto } from '@/modal/dtos/signIn.dto'
-import { SignUpDto } from '@/modal/dtos/signUp.dto'
+import { SignInDto } from '@/model/dtos/signIn.dto'
+import { SignUpDto } from '@/model/dtos/signUp.dto'
 
 import { baseUrl } from './url'
 import http from './request'
 
 export const signUp = (data: SignUpDto) => {
-  return http.post(`${baseUrl}/signUp`, data).then(res => {
+  return http.post(`${baseUrl} / signUp}`, data).then(res => {
     return res
   })
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useState } from 'react'
 import { Wrapper } from './style'
-import { ArticleEntity } from '@/modal/entities/article.entity'
+import { ArticleEntity } from '@/model/entities/article.entity'
 import { addLike, deleteLike } from '@/Api/like'
 
 interface IProps extends ArticleEntity {}

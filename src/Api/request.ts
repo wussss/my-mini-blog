@@ -31,15 +31,6 @@ methods.forEach(v => {
       baseURL: baseUrl || DEFAULTCONFIG.baseURL,
     }
     const instance = axios.create(DEFAULTCONFIG)
-    // Add a request interceptor
-    // instance.interceptors.request.use(
-    //   cfg => {
-    //     cfg.params = { ...cfg.params }
-    //     return cfg
-    //   },
-    //   error => Promise.reject(error)
-    // )
-
     if (v === 'get') {
       axiosConfig.params = data
     } else if (data instanceof FormData) {

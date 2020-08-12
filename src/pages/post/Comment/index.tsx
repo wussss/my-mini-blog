@@ -6,7 +6,7 @@ import { useSelector } from '@/redux/context'
 import { createComment, getCommentList } from '@/Api/comment'
 import useFetch from '@/lib/hooks/useFetch'
 import useInputEvent from '@/lib/hooks/useInputEvent'
-import { ArticleEntity } from '@/modal/entities/article.entity'
+import { ArticleEntity } from '@/model/entities/article.entity'
 
 import { Wrapper } from './style'
 

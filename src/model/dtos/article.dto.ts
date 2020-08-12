@@ -9,7 +9,5 @@ export class CreateArticleDto {
 
   readonly screenshot!: string
 
-  readonly tag!: string[]
-
   readonly type!: string
 }

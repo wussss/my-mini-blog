@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   flex-flow: row nowrap;
   margin-right: 80px;
   .publish {
-    width:180px;
+    width: 180px;
     color: #cbb8cb;
     font-size: 12px;
     :hover {
@@ -20,6 +20,19 @@ export const Wrapper = styled.div`
       margin-left: 5px;
       padding: 2px;
     }
+  }
+  .confirm {
+    width: 100px;
+    color: #f2aebd;
+    font-weight: bold;
+    background: #fff;
+    :hover {
+      cursor: pointer;
+      color: #fff;
+      background: #f2aebd;
+    }
+    border: 1px solid #f2aebd;
+    border-radius: 5px;
   }
   .blog-type {
     position: absolute;
@@ -49,20 +62,6 @@ export const Wrapper = styled.div`
         color: #fff;
         background: #cbb8cb;
       }
-    }
-    button {
-      margin-left: 80px;
-      width: 100px;
-      color: #f2aebd;
-      font-weight: bold;
-      background: #fff;
-      :hover {
-        cursor: pointer;
-        color: #fff;
-        background: #f2aebd;
-      }
-      border: 1px solid #f2aebd;
-      border-radius: 5px;
     }
   }
 `

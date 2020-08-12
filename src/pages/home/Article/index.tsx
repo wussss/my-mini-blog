@@ -5,7 +5,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react'
 // usestate(state,setState) 每次渲染按第一次运行的顺序返回state;只会渲染一次;通过setState函数改变state
 import { addLike, deleteLike } from '@/Api/like'
 import useQuery from '@/lib/hooks/useQuery'
-import { ArticleEntity } from '@/modal/entities/article.entity'
+import { ArticleEntity } from '@/model/entities/article.entity'
 
 import { Wrapper } from './style'
 import { translateMarkdown } from '@/lib/utils/markdown'

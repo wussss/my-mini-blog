@@ -1,6 +1,6 @@
-import { CreateArticleDto } from '@/modal/dtos/article.dto'
-import { ArticleEntity } from '@/modal/entities/article.entity'
-import { IPage } from '@/modal/interfaces/common.interface'
+import { CreateArticleDto } from '@/model/dtos/article.dto'
+import { ArticleEntity } from '@/model/entities/article.entity'
+import { IPage } from '@/model/interfaces/common.interface'
 
 import http from './request'
 import { baseUrl } from './url'

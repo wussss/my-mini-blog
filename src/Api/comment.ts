@@ -1,6 +1,6 @@
 import http from './request'
 import { baseUrl } from './url'
-import { CreateCommentDto } from '@/modal/dtos/comment.dto'
+import { CreateCommentDto } from '@/model/dtos/comment.dto'
 const comment = {
   create: `/comment`,
   query: `/comment/`,

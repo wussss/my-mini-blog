@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
         font-size: 14px;
         font-weight: bold;
         white-space: nowrap;
-        letter-spacing:-2px;
+        letter-spacing: -1px;
       }
       .abstract {
         white-space: nowrap;

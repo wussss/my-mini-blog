@@ -55,7 +55,6 @@ const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }
           title,
           screenshot: screenshot,
           type: newtype,
-          tag: [],
         })
         history.replace(`/post/${id}`)
       } else {
@@ -67,7 +66,6 @@ const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }
           title,
           screenshot: screenshot,
           type: newtype,
-          tag: [],
         })
         history.replace(`/post/${id}`)
       }
@@ -100,11 +98,11 @@ const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }
               </li>
             ))}
           </ul>
-          <button className="confirm" onClick={onPublish}>
-            确定并发布
-          </button>
         </div>
       )}
+      <button className="confirm" onClick={onPublish}>
+        确定并发布
+      </button>
     </Wrapper>
   )
 }
