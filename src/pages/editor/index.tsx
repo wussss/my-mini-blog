@@ -74,7 +74,7 @@ const MyEditor: React.FC = () => {
     <Wrapper screenshot={data.screenshot}>
       <div className="articleEdit">
         <div className="header">
-          <Input className="title" placeholder="输入文章标题..." value={title} onChange={onInputEvent} />
+          <Input className="title" placeholder="输入标题..." value={title} onChange={onInputEvent} />
           <div className="right-box">
             <div className="upload-img">
               <input type="file" accept="image/*" className="img-selector" title="添加封面图" onChange={onUpload} />
