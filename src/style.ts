@@ -41,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     	color: #333;
 		background-color: #f4f5f5 !important;
 		z-index:-10;
-        background: url(${background}) no-repeat;
+        background: url(${background}) ;
         background-size:cover;
 	}
 	ol, ul {

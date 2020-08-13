@@ -23,8 +23,8 @@ const routes: IRoute[] = [
 export default routes
 
 export interface IRoute {
-	path: string
-	exact?: boolean
-	component: TLazyComponentsKeys
-	childRoutes?: IRoute[]
+	path: string  //路径
+	exact?: boolean   //是否精准匹配
+	component: TLazyComponentsKeys  // 地址匹配时呈现的组件
+	childRoutes?: IRoute[]  //子路由
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.less'
 
 class RouteErrorBoundary extends React.Component {
   state = { hasError: false }
@@ -11,8 +10,6 @@ class RouteErrorBoundary extends React.Component {
 
   componentDidCatch(error: any, errorInfo: any) {
     console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: RouteErrorBoundary -> componentDidCatch -> error, errorInfo', { error }, { errorInfo })
-    // 你同样可以将错误日志上报给服务器
-    // logErrorToMyService(error, errorInfo)
   }
 
   render() {

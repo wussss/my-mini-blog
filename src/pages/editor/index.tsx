@@ -22,7 +22,7 @@ import Myavatar from '@/containers/Frame/Myavatar'
 import Publish from './Publish'
 import { Wrapper } from './style'
 
-const EditMarkdown: React.FC = () => {
+const MyEditor: React.FC = () => {
   useNeedLogin()
   const history = useHistory()
   const { id = '' } = useParams()
@@ -109,4 +109,4 @@ const EditMarkdown: React.FC = () => {
   )
 }
 
-export default EditMarkdown
+export default MyEditor

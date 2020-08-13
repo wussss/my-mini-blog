@@ -88,7 +88,7 @@ const Article: React.FC<IProps> = ({
             <h3
               className="title"
               dangerouslySetInnerHTML={{
-                __html: title && title.replace(new RegExp(search, 'gi'), `<em> ${search}</em>`),
+                __html: !search ? title : title.replace(new RegExp(search, 'gi'), `<em> ${search}</em>`),
               }}
             ></h3>
             <div

@@ -28,35 +28,36 @@ style.ts //全局样式
 
 
 ### components 所有页面都会用到的组件
+spincenter 加载中
 
 ### containers 定义页面基本结构，以及注册、登录等弹窗的组件
 
-Frame/header、Login、Register、Main
+Frame/header搜索栏、Myavatar头像下拉框、Login登录、Register注册、Main主要内容
 
-AuthRate
+AuthRoute  路由
 
-RouteErrorBoundary
+RouteErrorBoundary  页面加载错误时的页面
 
 ### lib 各种可能会用到的方法
+hooks  hooks方法
+utils 其它方法
 
 ### model 外部模块，变量类型定义
 dto 数据传输对象  entities 命名实体  interfaces 接口变量类型
 
 ### pages 各页面业务逻辑
-
 home 主页
 post 文章详情页
+settings 修改个人信息
+editor 编辑器
 
 ### redux state 定义与管理
-
 context.ts //定义 store
-reducer.ts //定义 action
+reducer.ts //定义 action（type、payload)
 
 ### routes 定义页面跳转
 
 ### statics 静态文件（图片、iconfont 等）
-
-
 
 // ts 类型配置文件
 ## typings
