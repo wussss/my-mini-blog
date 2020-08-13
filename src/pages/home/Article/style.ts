@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
       cursor: pointer;
       width: 760px;
       position: relative;
+      padding-top:10px;
       font-size: 12px;
       .title {
         font-size: 14px;
@@ -58,6 +59,7 @@ export const Wrapper = styled.div`
     .icon_like {
       cursor: pointer;
       margin-top: 5px;
+      padding-top:10px;
       color: #b9a1c1;
       display: flex;
       align-items: center;
