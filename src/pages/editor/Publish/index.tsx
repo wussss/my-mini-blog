@@ -80,7 +80,8 @@ const Publish: React.FC<IProps> = ({ title, content, type, screenshot = '', id }
           !dropdown ? setDropDown(true) : setDropDown(false)
         }}
       >
-        &#xe61e; 选择文章标签<span className={newtype ? 'preview' : ''}>{newtype}</span>
+        &#xe61e; 选择文章标签
+        <span className={newtype ? 'preview' : ''}>{newtype}</span>
       </span>
       {dropdown && (
         <div className="blog-type">

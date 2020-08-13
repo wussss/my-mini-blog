@@ -41,7 +41,7 @@ const Article: React.FC<IProps> = ({
   title,
   screenshot = '',
   type,
-  user = {},
+  user = { avatarLarge: '' },
   id,
   create_at,
   likeCount,
@@ -84,11 +84,11 @@ const Article: React.FC<IProps> = ({
             <li className="info_item">{formatDate(create_at)}</li>
             <li className="info_item">{type}</li>
           </ul>
-          <div className="article" onClick={toPost} title="点击可查看详情">
+          <div className="article" onClick={toPost} title="点击查看全文">
             <h3
               className="title"
               dangerouslySetInnerHTML={{
-                __html: !search ? title : title.replace(new RegExp(search, 'gi'), `<em> ${search}</em>`),
+                __html: !search ? title : title.replace(new RegExp(search, 'gi'), `<em>${search}</em>`),
               }}
             ></h3>
             <div
@@ -97,6 +97,7 @@ const Article: React.FC<IProps> = ({
                 __html: matchReg(html || translateMarkdown(content || '')).replace(new RegExp(search, 'gi'), `<em>${search}</em>`),
               }}
             ></div>
+            {html.length >= 60 && <span className='look'>查看全文</span>}
             <div className="photo" />
           </div>
           <li className="icon_like" onClick={onLike}>

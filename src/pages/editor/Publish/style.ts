@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
   margin-right: 80px;
+  margin-top:7px;
   .publish {
     width: 180px;
     color: #cbb8cb;
@@ -26,6 +27,7 @@ export const Wrapper = styled.div`
     color: #f2aebd;
     font-weight: bold;
     background: #fff;
+    margin-left:20px;
     :hover {
       cursor: pointer;
       color: #fff;

@@ -29,6 +29,14 @@ export const Wrapper = styled.div`
       top: 31px;
       cursor: pointer;
     }
+    .delete {
+      color: #efbccd;
+      opacity: 0.8;
+      position: absolute;
+      left: 260px;
+      top: 31px;
+      cursor: pointer;
+    }
   }
   .article {
     margin: 10px 10px;
@@ -36,7 +44,7 @@ export const Wrapper = styled.div`
       display: ${({ screenshot }: { screenshot: string; avatarLarge: string }) => (screenshot ? 'block' : 'none')};
       background: ${({ screenshot }) => `url(${screenshot}) no-repeat center/cover`};
       width: 780px;
-      height:500px;
+      height: 500px;
     }
     .title {
       font-size: 20px;

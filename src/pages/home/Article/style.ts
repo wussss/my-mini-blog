@@ -25,10 +25,6 @@ export const Wrapper = styled.div`
       width: 760px;
       position: relative;
       font-size: 12px;
-      :hover {
-        font-weight: bold;
-        color: #b9a1c1;
-      }
       .title {
         font-size: 14px;
         font-weight: bold;
@@ -37,9 +33,14 @@ export const Wrapper = styled.div`
         color: red !important;
       }
       .abstract {
+        width: 720px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+      .look {
+        font-weight: bold;
+        color: #b9a1c1;
       }
       .photo {
         display: ${({ screenshot }: { screenshot: string }) => (screenshot ? 'block' : 'none')};
