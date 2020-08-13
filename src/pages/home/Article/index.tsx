@@ -41,7 +41,7 @@ const Article: React.FC<IProps> = ({
   title,
   screenshot = '',
   type,
-  user = { avatarLarge: '' },
+  user = {},
   id,
   create_at,
   likeCount,

@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
     position: absolute;
     top: 100%;
     z-index: 10;
-    width: 180px;
+    width: 185px;
     height: 120px;
     border-radius: 5px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
