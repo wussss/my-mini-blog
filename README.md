@@ -79,8 +79,11 @@ global.d.ts  //ts 声明文件，在 JavaScript 里提供了很多库的使用�
 //项目描述信息，包括依赖包版本等，项目运行开始的文件
 ### package.json
 
+
 //防止依赖包自动更新，用 npm 安装
 ### package-lock.json
+
+
 
 // ts 配置文件，通过 tsc --init 命令生成
 ### tsconfig.json
