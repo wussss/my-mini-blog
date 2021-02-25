@@ -186,6 +186,7 @@
   },
   "devDependencies": {
     "@types/codemirror": "0.0.79",
-    "@types/react": "^16.9.11"
+    "@types/react": "^16.9.11",
+    "@typescript-eslint/typescript-estree": "^4.15.2"
   }
 }
