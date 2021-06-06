@@ -1,0 +1,30 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Values.service.app }}-route
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`{{ .Values.route.host }}`)
+      kind: Rule
+      services:
+        - name: {{ .Values.service.app }}
+          port: {{ .Values.service.port }}
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Values.service.app }}-route-secure
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`{{ .Values.route.host }}`)
+      kind: Rule
+      services:
+        - name: {{ .Values.service.app }}
+          port: {{ .Values.service.port }}
+  tls:
+    secretName: who-tls
