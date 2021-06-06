@@ -12,7 +12,7 @@ env:
   REPO: https://wussss.github.io/my-mini-blog
   REQ: $(curl -s https://wussss.github.io/my-mini-blog/latest?q=$RANDOM)
   APP: my-mini-blog
-  HOST: ${{ secrets.ALI_HOST }}
+  HOST: ${{secrets.ALI_HOST}}
   DOMAIN: wussss/my-mini-blog
 
 jobs:
