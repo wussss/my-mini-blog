@@ -4,7 +4,7 @@
 
 image:
   rigistry: registry.cn-shanghai.aliyuncs.com
-  repository: registry.cn-shanghai.aliyuncs.com/anthhub/my-mini-blog
+  repository: registry.cn-shanghai.aliyuncs.com/wussss/my-mini-blog
   tag: latest
   # pullPolicy: IfNotPresent
 
