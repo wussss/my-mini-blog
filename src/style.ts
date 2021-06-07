@@ -1,6 +1,5 @@
 // 全局样式
 import { createGlobalStyle } from 'styled-components'
-import background from '@/statics/background.jpeg'
 export const GlobalStyle = createGlobalStyle`
 	/* http://meyerweb.com/eric/tools/css/reset/
 		v2.0 | 20110126
@@ -41,7 +40,6 @@ export const GlobalStyle = createGlobalStyle`
     	color: #333;
 		background-color: #f4f5f5 !important;
 		z-index:-10;
-        background: url(${background}) ;
         background-size:cover;
 	}
 	ol, ul {
