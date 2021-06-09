@@ -1,18 +1,20 @@
 > This project was bootstrapped with Create React App.
-> 网址：http://118.190.37.169:8003/
+> 网址："http://mjj.liuma.top/"
+
 ### 技术栈
+
 ```
-react 
+react
 redux
 react hooks
 ant design iconfont styled-components ——样式
 typescript
 
 ```
+
 <hr />
 
 ### 接口服务是使用的(https://github.com/anthhub/nest-mini-blog)
-
 
 ### 功能列表
 
@@ -32,7 +34,7 @@ typescript
 
 src
 
-- Api 定义 api发起请求
+- Api 定义 api 发起请求
 
 - components 项目中通用的组件
 
@@ -40,7 +42,7 @@ src
 
 - lib 各种可能会用到的方法
 
-- model变量类型定义
+- model 变量类型定义
 
 - pages 页面业务逻辑
 

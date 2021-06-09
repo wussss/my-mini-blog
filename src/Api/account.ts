@@ -5,7 +5,7 @@ import { baseUrl } from './url'
 import http from './request'
 
 export const signUp = (data: SignUpDto) => {
-  return http.post(`${baseUrl} / signUp}`, data).then(res => {
+  return http.post(`${baseUrl}/signUp`, data).then(res => {
     return res
   })
 }
