@@ -20,6 +20,13 @@ export const getArticles = (data?: any) => {
   })
 }
 
+// 拿到指定 id 的用户的文章
+export const getUserArticles = (data?: any) => {
+  return http.get(baseUrl + '/user/' + (data.id || data) + '/articles', data || {}).then(res => {
+    return res
+  })
+}
+
 export const getArticle = (articleId: string) => {
   return http.get(baseUrl + article.detail + articleId).then(res => {
     return res

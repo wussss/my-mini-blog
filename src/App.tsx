@@ -1,12 +1,12 @@
 import { usePersistedContext, usePersistedReducer } from '@/lib/hooks/usePersist'
 import React, { useContext, useReducer } from 'react'
 
-import Store from './redux/context'
+import Store from './redux/store'
 import reducer from './redux/reducer'
 
 import '@/styles/index.less'
 import AppRouter from './routes'
-import { GlobalStyle } from './style'
+import GlobalStyle from './style'
 
 export const bridge: any = {}
 

@@ -1,4 +1,4 @@
-import RouteErrorBoundary from '@/containers/RouteErrorBoundary'
+import RouteErrorBoundary from '@/component/RouteErrorBoundary'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import renderRoutes from './renderRoutes'

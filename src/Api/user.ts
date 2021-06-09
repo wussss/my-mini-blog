@@ -21,13 +21,6 @@ export const getUserInfo = (id: string) => {
   })
 }
 
-// 拿到指定 id 的用户的文章
-export const getUserArticles = (data?: any) => {
-  return http.get(baseUrl + '/user/' + (data.id || data) + '/articles', data || {}).then(res => {
-    return res
-  })
-}
-
 // 拿到指定 id 的用户的关注
 export const getUserFollowing = (id: string) => {
   return http.get(baseUrl + '/user/' + id + '/following').then(res => {
