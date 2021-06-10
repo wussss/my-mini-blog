@@ -1,7 +1,7 @@
 import { UserUpdateDto } from '@/model/dtos/userUpdate.dto'
 
 import http from './request'
-import { baseUrl } from './url'
+import { baseUrl } from '../baseUrl'
 
 const user = {
   update: '/user/update',

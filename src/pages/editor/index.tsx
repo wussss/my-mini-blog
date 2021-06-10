@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import '@/statics/iconfont/iconfont.css'
-import '../../../../node_modules/codemirror/lib/codemirror.css'
+import '../../../node_modules/codemirror/lib/codemirror.css'
 import 'codemirror'
-import '../../../../node_modules/codemirror/theme/eclipse.css'
+import '../../../node_modules/codemirror/theme/eclipse.css'
 import 'codemirror/mode/markdown/markdown'
 
 import { Input, message } from 'antd'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { useParams, useHistory } from 'react-router'
+import { useParams, useHistory } from 'react-router-dom'
 import { useSelector } from '@/redux/store'
 import { getArticle } from '@/api/article'
 import { uploadFile } from '@/api/file'
@@ -24,8 +24,11 @@ import { Wrapper } from './style'
 
 const MyEditor: React.FC = () => {
   useNeedLogin()
+  interface IPrams {
+    id: string
+  }
   const history = useHistory()
-  const { id = '' } = useParams()
+  const { id } = useParams<IPrams>()
   const { articleList = [] } = useSelector()
   const article = articleList.find(item => id === item.id) || {}
   const [data, setData] = useState(article)

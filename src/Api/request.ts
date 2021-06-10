@@ -60,7 +60,7 @@ methods.forEach(v => {
         const status = err && err.response && err.response.status
 
         if (status === 401) {
-          console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: status', status)
+          console.log('%c%s', 'color: #20bd08;font-size:15px', '===INFO===: status', status)
           bridge.dispatch({ type: 'CHANGE_SHOW_LOGIN', payload: { showLogin: true } })
 
           return Promise.reject({})

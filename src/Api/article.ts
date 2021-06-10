@@ -3,19 +3,10 @@ import { ArticleEntity } from '@/model/entities/article.entity'
 import { IPage } from '@/model/interfaces/common.interface'
 
 import http from './request'
-import { baseUrl } from './url'
-
-const article = {
-  query: `/article/query`,
-  detail: `/article/`,
-  create: `/article/`,
-  reedit: `/article/`,
-  delete: `/article`,
-  viewCount: `/article/`,
-}
+import { baseUrl } from '../baseUrl'
 
 export const getArticles = (data?: any) => {
-  return http.get(baseUrl + article.query, data || {}).then(res => {
+  return http.get(baseUrl + '/article/query', data || {}).then(res => {
     return res as IPage<ArticleEntity>
   })
 }
@@ -28,31 +19,31 @@ export const getUserArticles = (data?: any) => {
 }
 
 export const getArticle = (articleId: string) => {
-  return http.get(baseUrl + article.detail + articleId).then(res => {
+  return http.get(baseUrl + '/article/' + articleId).then(res => {
     return res
   })
 }
 
 export const createArticle = (data: CreateArticleDto) => {
-  return http.post(baseUrl + article.create, data).then(res => {
+  return http.post(baseUrl + '/article/', data).then(res => {
     return res
   })
 }
 
 export const reeditArticle = (articleId: string, data: CreateArticleDto) => {
-  return http.patch(baseUrl + article.reedit + articleId, data).then(res => {
+  return http.patch(baseUrl + '/article/' + articleId, data).then(res => {
     return res
   })
 }
 
 export const deleteArticle = (articleId: string) => {
-  return http.delete(baseUrl + article.delete + `?id=` + articleId).then(res => {
+  return http.delete(baseUrl + `/article/?id=` + articleId).then(res => {
     return res
   })
 }
 
 export const putViewCount = (articleId: string) => {
-  return http.put(baseUrl + article.viewCount + articleId + '/putViewCount').then(res => {
+  return http.put(baseUrl + '/article/' + articleId + '/putViewCount').then(res => {
     return res
   })
 }

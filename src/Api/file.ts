@@ -1,5 +1,5 @@
 import http from './request'
-import { baseUrl } from './url'
+import { baseUrl } from '../baseUrl'
 
 const file = {
   update: `/file/upload`,

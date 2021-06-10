@@ -1,7 +1,7 @@
 import { SignInDto } from '@/model/dtos/signIn.dto'
 import { SignUpDto } from '@/model/dtos/signUp.dto'
 
-import { baseUrl } from './url'
+import { baseUrl } from '../baseUrl'
 import http from './request'
 
 export const signUp = (data: SignUpDto) => {

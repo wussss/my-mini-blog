@@ -43,7 +43,7 @@ const Myavatar: React.FC = props => {
         {dropdown && (
           <ul className="dropdown-list">
             <li>
-              <Link className="menu-item" to={'/settings'}>
+              <Link className="menu-item" to={'/setting'}>
                 <span className="iconfont">&#xe654; 个人资料 </span>
               </Link>
             </li>

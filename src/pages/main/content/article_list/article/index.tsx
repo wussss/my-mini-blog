@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { memo, useCallback, useEffect, useState } from 'react'
 //memo针对一个组件是否重复渲染
+import { useHistory } from 'react-router'
 // usestate(state,setState) 每次渲染按第一次运行的顺序返回state;只会渲染一次;通过setState函数改变state
 import { addLike, deleteLike } from '@/api/like'
 import useQuery from '@/lib/hooks/useQuery'
@@ -46,8 +47,9 @@ const Article: React.FC<IProps> = ({
   likeCount,
   isLiked = false,
 }) => {
+  const history = useHistory()
   const toPost = () => {
-    window.open(`/post/${id}`, '_blank')
+    history.push(`/detail/${id}`)
   } //在新的标签页打开文章详情页
   const { query } = useQuery()
   const { search = '' } = query

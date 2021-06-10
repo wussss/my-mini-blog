@@ -1,6 +1,6 @@
 export default function reducer(state: any, action: any) {
   const { payload } = action
-  console.log('%c%s', 'color: #20bd08;font-size:15px', '===TQY===: reducer -> action', action)
+  console.log('%c%s', 'color: #20bd08;font-size:15px', '===INFO===: reducer -> action', action)
   switch (action.type) {
     case 'CHANGE_SHOW_LOGIN':
       return { ...state, ...payload }
@@ -20,7 +20,7 @@ export default function reducer(state: any, action: any) {
     case 'UPDATE_ARTICLE':
       return {
         ...state,
-        articleList: state.articleList.filter((item: any) => item.id === payload.id).screenshot = payload.screenshot,
+        articleList: (state.articleList.filter((item: any) => item.id === payload.id).screenshot = payload.screenshot),
       }
 
     case 'CHANGE_LIKE_LIST':

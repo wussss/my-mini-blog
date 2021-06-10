@@ -11,7 +11,7 @@ import useInputEvent from '@/lib/hooks/useInputEvent'
 import useQuery from '@/lib/hooks/useQuery'
 import { useDispatch, useLogin } from '@/redux/store'
 import Login from '@/component/Login'
-import Register from '../../component/Register'
+import Register from '../../../component/Register'
 import Myavatar from '@/component/Myavatar'
 import { Wrapper } from './style'
 
@@ -35,7 +35,7 @@ const Header: React.FC = props => {
   return (
     <Wrapper>
       <header className="header">
-        <Link className="logo-link" to="/home" title="小狗博客">
+        <Link className="logo-link" to="/" title="小狗博客">
           <div className="logo" />
         </Link>
         <ul className="nav">

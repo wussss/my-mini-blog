@@ -22,7 +22,7 @@ const renderRoutes = (routesTree: IRoute[]) => (
           )}
         />
       ) : (
-        <Route exact key={route.component} path={route.path} component={Comp} />
+        <Route exact key={route.component} path={route.path} render={Comp} />
       )
     })}
     <Redirect to={'/'} />

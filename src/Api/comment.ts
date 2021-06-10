@@ -1,5 +1,5 @@
 import http from './request'
-import { baseUrl } from './url'
+import { baseUrl } from '../baseUrl'
 import { CreateCommentDto } from '@/model/dtos/comment.dto'
 const comment = {
   create: `/comment`,
